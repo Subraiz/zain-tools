@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <title>Z's Tools — Best Prices on Parts & Tools</title>
+
+  <!-- ── PWA / App Meta Tags ── -->
+  <meta name="application-name" content="Z's Tools"/>
+  <meta name="apple-mobile-web-app-title" content="Z's Tools"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="theme-color" content="#2563eb"/>
+  <meta name="msapplication-TileColor" content="#2563eb"/>
+  <meta name="msapplication-navbutton-color" content="#2563eb"/>
+
+  <!-- ── SEO / Share Meta ── -->
+  <meta name="description" content="Z's Tools — Compare prices on PC parts, tools, electronics, auto parts & industrial supplies across 20+ top retailers including Grainger, Zoro, Amazon, and more."/>
+  <meta name="keywords" content="price comparison, PC parts, tools, Grainger, Zoro, Amazon, Newegg, auto parts, electronics, industrial"/>
+  <meta property="og:title" content="Z's Tools — Best Prices on Parts & Tools"/>
+  <meta property="og:description" content="Compare prices across 20+ retailers. Find the best deals instantly."/>
+  <meta property="og:type" content="website"/>
+
+  <!-- ── Inline PWA Manifest ── -->
+  <link rel="manifest" href="data:application/json,{%22name%22:%22Z%27s%20Tools%22,%22short_name%22:%22Z%27s%20Tools%22,%22description%22:%22Best%20prices%20on%20parts%20and%20tools%22,%22start_url%22:%22.%2F%22,%22display%22:%22standalone%22,%22background_color%22:%22%23f8fafc%22,%22theme_color%22:%22%232563eb%22,%22icons%22:[{%22src%22:%22data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20512%20512'%3E%3Crect%20width%3D'512'%20height%3D'512'%20rx%3D'80'%20fill%3D'%232563eb'%2F%3E%3Ctext%20y%3D'.9em'%20font-size%3D'400'%20x%3D'56'%3E%F0%9F%94%A7%3C%2Ftext%3E%3C%2Fsvg%3E%22,%22sizes%22:%22512x512%22,%22type%22:%22image/svg+xml%22}]}"/>
+
+  <!-- ── Inline Favicon ── -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232563eb'/><text y='.9em' font-size='75' x='12'>🔧</text></svg>"/>
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232563eb'/><text y='.9em' font-size='75' x='12'>🔧</text></svg>"/>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --accent: #f59e0b;
+      --success: #10b981;
+      --danger: #ef4444;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --border: #e2e8f0;
+      --text: #1e293b;
+      --muted: #64748b;
+      --shadow: 0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.06);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,.12);
+      --radius: 12px;
+    }
+
+    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    }
+    .header-inner {
+      max-width: 1400px; margin: 0 auto;
+      padding: 0 24px;
+      display: flex; align-items: center; gap: 16px;
+      height: 68px;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; flex-shrink: 0;
+    }
+    .logo-icon {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, var(--primary), #7c3aed);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 18px;
+    }
+    .logo-text { font-size: 1.3rem; font-weight: 800; color: var(--text); }
+    .logo-text span { color: var(--primary); }
+
+    .search-wrap {
+      flex: 1; max-width: 560px;
+      position: relative;
+    }
+    .search-wrap input {
+      width: 100%; padding: 10px 48px 10px 44px;
+      border: 2px solid var(--border); border-radius: 50px;
+      font-size: .95rem; background: var(--bg);
+      transition: border-color .2s;
+      outline: none;
+    }
+    .search-wrap input:focus { border-color: var(--primary); background: white; }
+    .search-wrap .search-icon {
+      position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+      color: var(--muted); font-size: 16px; pointer-events: none;
+    }
+    .search-wrap button {
+      position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+      background: var(--primary); color: white; border: none;
+      padding: 6px 16px; border-radius: 50px; font-size: .85rem;
+      font-weight: 600; cursor: pointer; transition: background .2s;
+    }
+    .search-wrap button:hover { background: var(--primary-dark); }
+
+    .header-actions { display: flex; align-items: center; gap: 10px; margin-left: auto; }
+    .badge-btn {
+      display: flex; align-items: center; gap: 6px;
+      padding: 8px 16px; border-radius: 50px;
+      border: 1.5px solid var(--border); background: white;
+      font-size: .85rem; font-weight: 600; cursor: pointer;
+      transition: all .2s; color: var(--text); text-decoration: none;
+    }
+    .badge-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .badge-btn .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--success); }
+
+    /* ── HERO BANNER ── */
+    .hero {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #7c3aed 100%);
+      color: white; text-align: center;
+      padding: 56px 24px 48px;
+    }
+    .hero h1 { font-size: 2.4rem; font-weight: 900; margin-bottom: 10px; }
+    .hero h1 span { color: #fbbf24; }
+    .hero p { font-size: 1.1rem; opacity: .85; max-width: 520px; margin: 0 auto 28px; }
+    .stores-row {
+      display: flex; justify-content: center; align-items: center;
+      gap: 12px; flex-wrap: wrap;
+    }
+    .store-chip {
+      background: rgba(255,255,255,.18); backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 50px; padding: 6px 14px;
+      font-size: .82rem; font-weight: 600; color: white;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .store-chip .emoji { font-size: 14px; }
+
+    /* ── CATEGORY TABS ── */
+    .cat-strip {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      position: sticky; top: 68px; z-index: 90;
+    }
+    .cat-inner {
+      max-width: 1400px; margin: 0 auto; padding: 0 24px;
+      display: flex; gap: 4px; overflow-x: auto;
+    }
+    .cat-inner::-webkit-scrollbar { display: none; }
+    .cat-btn {
+      display: flex; align-items: center; gap: 8px;
+      padding: 14px 20px; border: none; background: none;
+      font-size: .9rem; font-weight: 600; cursor: pointer;
+      color: var(--muted); white-space: nowrap;
+      border-bottom: 3px solid transparent;
+      transition: all .2s;
+    }
+    .cat-btn:hover { color: var(--primary); }
+    .cat-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
+    .cat-btn .icon { font-size: 18px; }
+    .count-chip {
+      background: var(--primary); color: white;
+      font-size: .72rem; font-weight: 700;
+      padding: 1px 7px; border-radius: 50px;
+    }
+
+    /* ── MAIN LAYOUT ── */
+    .main { max-width: 1400px; margin: 0 auto; padding: 28px 24px; }
+
+    .toolbar {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 20px; flex-wrap: wrap; gap: 12px;
+    }
+    .result-count { font-size: .9rem; color: var(--muted); }
+    .result-count strong { color: var(--text); }
+
+    .sort-row { display: flex; align-items: center; gap: 10px; }
+    .sort-row label { font-size: .85rem; color: var(--muted); font-weight: 500; }
+    .sort-row select {
+      padding: 7px 28px 7px 12px; border: 1.5px solid var(--border);
+      border-radius: 8px; font-size: .85rem; background: white;
+      cursor: pointer; outline: none; appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748b' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 10px center;
+    }
+    .filter-btn {
+      display: flex; align-items: center; gap: 6px;
+      padding: 7px 14px; border: 1.5px solid var(--border);
+      border-radius: 8px; background: white; font-size: .85rem;
+      font-weight: 600; cursor: pointer; transition: all .2s;
+    }
+    .filter-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+    /* ── PRODUCT GRID ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--surface); border-radius: var(--radius);
+      border: 1px solid var(--border); box-shadow: var(--shadow);
+      overflow: hidden; transition: transform .2s, box-shadow .2s;
+      display: flex; flex-direction: column;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+
+    .card-img-wrap {
+      position: relative; background: #f1f5f9;
+      height: 180px; display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .card-emoji { font-size: 64px; line-height: 1; }
+    .badge {
+      position: absolute; top: 10px; left: 10px;
+      padding: 3px 10px; border-radius: 50px;
+      font-size: .72rem; font-weight: 700; letter-spacing: .03em;
+    }
+    .badge-deal { background: #fef3c7; color: #92400e; }
+    .badge-hot  { background: #fee2e2; color: #991b1b; }
+    .badge-new  { background: #d1fae5; color: #065f46; }
+    .badge-sale { background: #ede9fe; color: #4c1d95; }
+
+    .save-chip {
+      position: absolute; top: 10px; right: 10px;
+      background: var(--success); color: white;
+      padding: 3px 9px; border-radius: 50px;
+      font-size: .72rem; font-weight: 700;
+    }
+
+    .card-body { padding: 16px; flex: 1; display: flex; flex-direction: column; gap: 8px; }
+    .card-cat { font-size: .72rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+    .card-name { font-size: .98rem; font-weight: 700; color: var(--text); line-height: 1.35; }
+    .card-specs { font-size: .8rem; color: var(--muted); line-height: 1.5; }
+
+    .rating-row { display: flex; align-items: center; gap: 6px; }
+    .stars { color: #fbbf24; font-size: 13px; letter-spacing: 1px; }
+    .rating-num { font-size: .8rem; color: var(--muted); }
+
+    .price-section {
+      display: flex; align-items: baseline; gap: 8px;
+      margin-top: auto;
+    }
+    .price-best { font-size: 1.5rem; font-weight: 900; color: var(--primary); }
+    .price-orig { font-size: .9rem; color: var(--muted); text-decoration: line-through; }
+
+    .store-deals { margin-top: 10px; }
+    .store-deals-title {
+      font-size: .75rem; color: var(--muted); font-weight: 600;
+      text-transform: uppercase; letter-spacing: .05em; margin-bottom: 6px;
+    }
+    .deal-list { display: flex; flex-direction: column; gap: 5px; }
+    .deal-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 6px 10px; border-radius: 8px; background: var(--bg);
+      border: 1px solid var(--border); text-decoration: none;
+      transition: all .15s;
+    }
+    .deal-row:hover { border-color: var(--primary); background: #eff6ff; }
+    .deal-row.best-deal { border-color: var(--success); background: #f0fdf4; }
+    .deal-store { display: flex; align-items: center; gap: 6px; }
+    .store-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .store-name { font-size: .82rem; font-weight: 600; color: var(--text); }
+    .best-tag {
+      font-size: .68rem; font-weight: 700; color: var(--success);
+      background: #dcfce7; padding: 1px 6px; border-radius: 50px;
+    }
+    .deal-price { font-size: .88rem; font-weight: 800; color: var(--primary); }
+    .deal-row.best-deal .deal-price { color: var(--success); }
+
+    .card-actions { padding: 0 16px 16px; display: flex; gap: 8px; }
+    .btn-primary {
+      flex: 1; padding: 10px; border: none;
+      background: var(--primary); color: white;
+      border-radius: 8px; font-size: .88rem; font-weight: 700;
+      cursor: pointer; transition: background .2s;
+    }
+    .btn-primary:hover { background: var(--primary-dark); }
+    .btn-outline {
+      padding: 10px 14px; border: 1.5px solid var(--border);
+      background: white; border-radius: 8px; font-size: .88rem;
+      cursor: pointer; transition: all .2s;
+    }
+    .btn-outline:hover { border-color: var(--danger); color: var(--danger); }
+
+    /* ── COMPARE BAR ── */
+    .compare-bar {
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+      background: var(--text); color: white;
+      padding: 14px 24px; border-radius: 50px;
+      display: flex; align-items: center; gap: 16px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.3);
+      z-index: 200; font-size: .9rem; font-weight: 600;
+      transition: all .3s;
+      opacity: 0; pointer-events: none;
+    }
+    .compare-bar.visible { opacity: 1; pointer-events: all; }
+    .compare-bar button {
+      background: white; color: var(--text);
+      border: none; padding: 8px 18px; border-radius: 50px;
+      font-weight: 700; cursor: pointer; font-size: .85rem;
+    }
+    .compare-bar .clear-btn { background: transparent; color: rgba(255,255,255,.6); padding: 0; font-size: .82rem; }
+
+    /* ── NO RESULTS ── */
+    .no-results {
+      text-align: center; padding: 80px 24px; color: var(--muted);
+      grid-column: 1 / -1;
+    }
+    .no-results .icon { font-size: 56px; margin-bottom: 12px; }
+    .no-results h3 { font-size: 1.2rem; color: var(--text); margin-bottom: 6px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--text); color: rgba(255,255,255,.7);
+      text-align: center; padding: 32px 24px;
+      margin-top: 60px; font-size: .85rem;
+    }
+    footer strong { color: white; }
+    footer a { color: #93c5fd; text-decoration: none; }
+    .footer-stores { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 12px 0 4px; font-size: .82rem; }
+
+    /* ── INSTALL BANNER ── */
+    .install-bar {
+      background: linear-gradient(90deg, #1e3a8a, #2563eb);
+      color: white; padding: 10px 24px;
+      display: flex; align-items: center; justify-content: center;
+      gap: 14px; font-size: .88rem; font-weight: 600;
+      flex-wrap: wrap; text-align: center;
+    }
+    .install-bar.hidden { display: none; }
+    .install-btn {
+      background: white; color: var(--primary);
+      border: none; padding: 6px 18px; border-radius: 50px;
+      font-weight: 700; font-size: .85rem; cursor: pointer;
+      white-space: nowrap;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .install-dismiss { background: none; border: none; color: rgba(255,255,255,.7); cursor: pointer; font-size: 18px; padding: 0 4px; }
+
+    /* ── CROSS-BROWSER FIXES ── */
+    input, button, select { -webkit-appearance: none; -moz-appearance: none; appearance: none; font-family: inherit; }
+    a { -webkit-tap-highlight-color: transparent; }
+    .card { -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+
+    /* ── RESPONSIVE — Mobile ── */
+    @media (max-width: 768px) {
+      .hero { padding: 36px 16px 32px; }
+      .hero h1 { font-size: 1.7rem; }
+      .hero p { font-size: .95rem; }
+      .header-inner { gap: 10px; padding: 0 14px; }
+      .logo-text { font-size: 1.05rem; }
+      .search-wrap { max-width: none; }
+      .grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+      .main { padding: 18px 14px; }
+      .toolbar { gap: 8px; }
+    }
+    @media (max-width: 480px) {
+      .grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 1.4rem; }
+      .stores-row { gap: 6px; }
+      .store-chip { font-size: .76rem; padding: 4px 10px; }
+      .card-img-wrap { height: 150px; }
+      .card-emoji { font-size: 52px; }
+      .compare-bar { width: calc(100% - 32px); border-radius: 16px; padding: 12px 16px; }
+    }
+    /* ── iOS safe areas ── */
+    @supports (padding: max(0px)) {
+      .header-inner { padding-left: max(24px, env(safe-area-inset-left)); padding-right: max(24px, env(safe-area-inset-right)); }
+      footer { padding-bottom: max(32px, env(safe-area-inset-bottom)); }
+    }
+    /* ── Firefox ── */
+    @-moz-document url-prefix() {
+      .search-wrap select, .sort-row select { padding-right: 12px; }
+    }
+    /* ── Safari smooth scroll ── */
+    html { -webkit-overflow-scrolling: touch; scroll-behavior: smooth; }
+    /* ── Edge / IE ── */
+    .grid { display: -ms-grid; display: grid; }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ PWA INSTALL BANNER ══════════ -->
+<div class="install-bar hidden" id="installBar">
+  <span>📲 Install <strong>Z's Tools</strong> as an app — works on Chrome, Edge, Safari & more!</span>
+  <button class="install-btn" id="installBtn">Install Now</button>
+  <button class="install-dismiss" onclick="document.getElementById('installBar').classList.add('hidden')" title="Dismiss">✕</button>
+</div>
+
+<!-- ══════════ HEADER ══════════ -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">🔧</div>
+      <div class="logo-text">Z's <span>Tools</span></div>
+    </a>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="Search PC parts, tools, electronics, industrial…" autocomplete="off" autocorrect="off" spellcheck="false"/>
+      <button onclick="doSearch()">Search</button>
+    </div>
+    <div class="header-actions">
+      <span class="badge-btn"><span class="dot"></span> Live Prices</span>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════ HERO ══════════ -->
+<div class="hero">
+  <h1>Z's <span>Tools</span> — Best Deals Instantly</h1>
+  <p>Compare prices across 20+ top retailers — Grainger, Zoro, Amazon, McMaster-Carr & more — so you never overpay.</p>
+  <div class="stores-row">
+    <div class="store-chip"><span class="emoji">🛒</span> Amazon</div>
+    <div class="store-chip"><span class="emoji">🏭</span> Grainger</div>
+    <div class="store-chip"><span class="emoji">⚙️</span> Zoro</div>
+    <div class="store-chip"><span class="emoji">🔩</span> MSC Industrial</div>
+    <div class="store-chip"><span class="emoji">📐</span> McMaster-Carr</div>
+    <div class="store-chip"><span class="emoji">🔧</span> Fastenal</div>
+    <div class="store-chip"><span class="emoji">🖥️</span> Newegg</div>
+    <div class="store-chip"><span class="emoji">🟦</span> Best Buy</div>
+    <div class="store-chip"><span class="emoji">🟡</span> Walmart</div>
+    <div class="store-chip"><span class="emoji">🏗️</span> Northern Tool</div>
+    <div class="store-chip"><span class="emoji">⚒️</span> Harbor Freight</div>
+    <div class="store-chip"><span class="emoji">🟩</span> Lowe's</div>
+    <div class="store-chip"><span class="emoji">🔧</span> Home Depot</div>
+    <div class="store-chip"><span class="emoji">🚗</span> O'Reilly Auto</div>
+    <div class="store-chip"><span class="emoji">🔑</span> NAPA Auto</div>
+    <div class="store-chip"><span class="emoji">🛞</span> RockAuto</div>
+    <div class="store-chip"><span class="emoji">📦</span> B&H Photo</div>
+    <div class="store-chip"><span class="emoji">📷</span> Adorama</div>
+    <div class="store-chip"><span class="emoji">🏪</span> Costco</div>
+    <div class="store-chip"><span class="emoji">🟠</span> eBay</div>
+  </div>
+</div>
+
+<!-- ══════════ CATEGORY TABS ══════════ -->
+<div class="cat-strip">
+  <div class="cat-inner">
+    <button class="cat-btn active" data-cat="all" onclick="filterCat('all', this)">
+      <span class="icon">🛍️</span> All Products <span class="count-chip" id="count-all">67</span>
+    </button>
+    <button class="cat-btn" data-cat="pc" onclick="filterCat('pc', this)">
+      <span class="icon">💻</span> PC Parts <span class="count-chip" id="count-pc">18</span>
+    </button>
+    <button class="cat-btn" data-cat="tools" onclick="filterCat('tools', this)">
+      <span class="icon">🔧</span> Tools <span class="count-chip" id="count-tools">14</span>
+    </button>
+    <button class="cat-btn" data-cat="electronics" onclick="filterCat('electronics', this)">
+      <span class="icon">⚡</span> Electronics <span class="count-chip" id="count-electronics">10</span>
+    </button>
+    <button class="cat-btn" data-cat="auto" onclick="filterCat('auto', this)">
+      <span class="icon">🚗</span> Auto Parts <span class="count-chip" id="count-auto">11</span>
+    </button>
+    <button class="cat-btn" data-cat="industrial" onclick="filterCat('industrial', this)">
+      <span class="icon">🏭</span> Industrial &amp; MRO <span class="count-chip" id="count-industrial">14</span>
+    </button>
+  </div>
+</div>
+
+<!-- ══════════ MAIN ══════════ -->
+<main class="main">
+  <div class="toolbar">
+    <div class="result-count" id="resultCount"><strong>48</strong> products found</div>
+    <div class="sort-row">
+      <label>Sort by:</label>
+      <select id="sortSelect" onchange="sortProducts()">
+        <option value="best">Best Deal</option>
+        <option value="price-asc">Price: Low → High</option>
+        <option value="price-desc">Price: High → Low</option>
+        <option value="rating">Top Rated</option>
+        <option value="savings">Most Savings</option>
+      </select>
+    </div>
+  </div>
+  <div class="grid" id="productGrid"></div>
+</main>
+
+<!-- ══════════ COMPARE BAR ══════════ -->
+<div class="compare-bar" id="compareBar">
+  <span>🔄 <span id="compareCount">0</span> items selected</span>
+  <button onclick="compareItems()">Compare Now</button>
+  <button class="clear-btn" onclick="clearCompare()">✕ Clear</button>
+</div>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <strong>Z's Tools</strong> — Your one-stop price comparison tool<br>
+  <small style="opacity:.6">Works on Chrome • Firefox • Safari • Edge • iOS • Android</small><br>
+  <div class="footer-stores">
+    <a href="https://www.amazon.com" target="_blank">Amazon</a>
+    <a href="https://www.grainger.com" target="_blank">Grainger</a>
+    <a href="https://www.zoro.com" target="_blank">Zoro</a>
+    <a href="https://www.mscdirect.com" target="_blank">MSC Industrial</a>
+    <a href="https://www.mcmaster.com" target="_blank">McMaster-Carr</a>
+    <a href="https://www.fastenal.com" target="_blank">Fastenal</a>
+    <a href="https://www.newegg.com" target="_blank">Newegg</a>
+    <a href="https://www.bestbuy.com" target="_blank">Best Buy</a>
+    <a href="https://www.walmart.com" target="_blank">Walmart</a>
+    <a href="https://www.northerntool.com" target="_blank">Northern Tool</a>
+    <a href="https://www.harborfreight.com" target="_blank">Harbor Freight</a>
+    <a href="https://www.lowes.com" target="_blank">Lowe's</a>
+    <a href="https://www.homedepot.com" target="_blank">Home Depot</a>
+    <a href="https://www.bhphotovideo.com" target="_blank">B&H Photo</a>
+    <a href="https://www.adorama.com" target="_blank">Adorama</a>
+    <a href="https://www.oreillyauto.com" target="_blank">O'Reilly Auto</a>
+    <a href="https://www.napaonline.com" target="_blank">NAPA Auto</a>
+    <a href="https://www.rockauto.com" target="_blank">RockAuto</a>
+    <a href="https://www.autozone.com" target="_blank">AutoZone</a>
+    <a href="https://www.costco.com" target="_blank">Costco</a>
+    <a href="https://www.ebay.com" target="_blank">eBay</a>
+  </div>
+  Prices shown are sample comparisons. Click any deal to go directly to the retailer.
+</footer>
+
+<script>
+// ══════════════════════════════════════════════════
+//  DATA
+// ══════════════════════════════════════════════════
+const STORE_COLORS = {
+  'Amazon':        '#f97316',
+  'Newegg':        '#f59e0b',
+  'Best Buy':      '#2563eb',
+  'Walmart':       '#16a34a',
+  'B&H Photo':     '#7c3aed',
+  'Home Depot':    '#dc2626',
+  'eBay':          '#ea580c',
+  'AutoZone':      '#b91c1c',
+  'Micro Center':  '#0891b2',
+  'Target':        '#e11d48',
+  'Grainger':      '#c2410c',
+  'Zoro':          '#15803d',
+  'MSC Industrial':'#1d4ed8',
+  'McMaster-Carr': '#374151',
+  'Fastenal':      '#1e40af',
+  'Northern Tool': '#92400e',
+  'Harbor Freight':'#b45309',
+  "Lowe's":        '#1d4ed8',
+  "O'Reilly Auto": '#dc2626',
+  'NAPA Auto':     '#1e3a8a',
+  'RockAuto':      '#059669',
+  'Adorama':       '#7c3aed',
+  'Costco':        '#1d4ed8',
+  'Sam\'s Club':   '#003087',
+};
+
+const STORE_URLS = {
+  'Amazon':        'https://www.amazon.com/s?k=',
+  'Newegg':        'https://www.newegg.com/p/pl?d=',
+  'Best Buy':      'https://www.bestbuy.com/site/searchpage.jsp?st=',
+  'Walmart':       'https://www.walmart.com/search?q=',
+  'B&H Photo':     'https://www.bhphotovideo.com/c/search?q=',
+  'Home Depot':    'https://www.homedepot.com/s/',
+  'eBay':          'https://www.ebay.com/sch/i.html?_nkw=',
+  'AutoZone':      'https://www.autozone.com/searchresult?searchtext=',
+  'Micro Center':  'https://www.microcenter.com/search/search_results.aspx?Ntk=all&query=',
+  'Target':        'https://www.target.com/s?searchTerm=',
+  'Grainger':      'https://www.grainger.com/search?searchQuery=',
+  'Zoro':          'https://www.zoro.com/search?q=',
+  'MSC Industrial':'https://www.mscdirect.com/browse/tn/?searchterm=',
+  'McMaster-Carr': 'https://www.mcmaster.com/#',
+  'Fastenal':      'https://www.fastenal.com/products?term=',
+  'Northern Tool': 'https://www.northerntool.com/shop/tools/search?_dyncharset=UTF-8&Ntk=All&N=0&Ntt=',
+  'Harbor Freight':'https://www.harborfreight.com/catalogsearch/result/?q=',
+  "Lowe's":        'https://www.lowes.com/search?searchTerm=',
+  "O'Reilly Auto": 'https://www.oreillyauto.com/search#q=',
+  'NAPA Auto':     'https://www.napaonline.com/en/auto-parts/search?query=',
+  'RockAuto':      'https://www.rockauto.com/en/catalog/',
+  'Adorama':       'https://www.adorama.com/l/?searchinfo=',
+  'Costco':        'https://www.costco.com/CatalogSearch?dept=All&keyword=',
+  'Sam\'s Club':   'https://www.samsclub.com/s/',
+};
+
+const products = [
+  // PC PARTS
+  {id:1, cat:'pc', emoji:'🖥️', name:'AMD Ryzen 9 7950X Processor', specs:'16-Core, 32-Thread • 4.5GHz Base • AM5', badge:'Hot', badgeType:'badge-hot', rating:4.8, reviews:2841,
+   deals:[{store:'Amazon',price:549.99,best:false},{store:'Newegg',price:519.99,best:true},{store:'Best Buy',price:569.99,best:false},{store:'Micro Center',price:524.99,best:false}], orig:699.99},
+
+  {id:2, cat:'pc', emoji:'💚', name:'NVIDIA GeForce RTX 4090 24GB', specs:'Ada Lovelace • 16384 CUDA Cores • GDDR6X', badge:'New', badgeType:'badge-new', rating:4.9, reviews:1543,
+   deals:[{store:'Newegg',price:1599.99,best:false},{store:'Amazon',price:1549.99,best:true},{store:'Best Buy',price:1649.99,best:false},{store:'B&H Photo',price:1579.99,best:false}], orig:1999.99},
+
+  {id:3, cat:'pc', emoji:'🟦', name:'Corsair Vengeance 32GB DDR5-6000', specs:'2×16GB • CL30 • Intel XMP 3.0 • RGB', badge:'Deal', badgeType:'badge-deal', rating:4.7, reviews:987,
+   deals:[{store:'Amazon',price:89.99,best:true},{store:'Newegg',price:94.99,best:false},{store:'Best Buy',price:99.99,best:false}], orig:149.99},
+
+  {id:4, cat:'pc', emoji:'⚙️', name:'ASUS ROG STRIX X670E-E Motherboard', specs:'AM5 • DDR5 • PCIe 5.0 • WiFi 6E • ATX', badge:null, rating:4.6, reviews:654,
+   deals:[{store:'Newegg',price:349.99,best:false},{store:'Amazon',price:329.99,best:true},{store:'Best Buy',price:369.99,best:false},{store:'B&H Photo',price:339.99,best:false}], orig:429.99},
+
+  {id:5, cat:'pc', emoji:'💾', name:'Samsung 990 Pro 2TB NVMe SSD', specs:'PCIe 4.0 • 7,450 MB/s Read • M.2 2280', badge:'Deal', badgeType:'badge-deal', rating:4.8, reviews:3201,
+   deals:[{store:'Amazon',price:149.99,best:true},{store:'Newegg',price:159.99,best:false},{store:'Best Buy',price:164.99,best:false},{store:'Walmart',price:154.99,best:false}], orig:229.99},
+
+  {id:6, cat:'pc', emoji:'❄️', name:'NZXT Kraken Elite 360 AIO Cooler', specs:'360mm Radiator • LCD Display • 3×120mm Fans', badge:'New', badgeType:'badge-new', rating:4.5, reviews:432,
+   deals:[{store:'Amazon',price:229.99,best:true},{store:'Newegg',price:239.99,best:false},{store:'Best Buy',price:249.99,best:false}], orig:279.99},
+
+  {id:7, cat:'pc', emoji:'🏠', name:'Fractal Design Torrent ATX Case', specs:'Open Frame • Dual 180mm Front Fans • Black', badge:null, rating:4.7, reviews:1876,
+   deals:[{store:'Amazon',price:139.99,best:true},{store:'Newegg',price:144.99,best:false},{store:'B&H Photo',price:149.99,best:false}], orig:169.99},
+
+  {id:8, cat:'pc', emoji:'⚡', name:'EVGA SuperNOVA 1000W G7 PSU', specs:'80+ Gold Certified • Fully Modular • ATX 3.0', badge:'Sale', badgeType:'badge-sale', rating:4.8, reviews:2109,
+   deals:[{store:'Amazon',price:139.99,best:true},{store:'Newegg',price:149.99,best:false},{store:'Best Buy',price:154.99,best:false}], orig:199.99},
+
+  {id:9, cat:'pc', emoji:'🖱️', name:'Logitech G Pro X Superlight 2', specs:'32K DPI • 60hr Battery • 60g Ultralight', badge:'Hot', badgeType:'badge-hot', rating:4.8, reviews:5621,
+   deals:[{store:'Amazon',price:129.99,best:true},{store:'Best Buy',price:139.99,best:false},{store:'Walmart',price:134.99,best:false},{store:'Target',price:139.99,best:false}], orig:159.99},
+
+  {id:10, cat:'pc', emoji:'⌨️', name:'Keychron Q1 Pro QMK/VIA Keyboard', specs:'75% Layout • Hot-Swap • Wireless • RGB', badge:'New', badgeType:'badge-new', rating:4.7, reviews:890,
+   deals:[{store:'Amazon',price:189.99,best:true},{store:'B&H Photo',price:199.99,best:false},{store:'Best Buy',price:194.99,best:false}], orig:219.99},
+
+  {id:11, cat:'pc', emoji:'🖥️', name:'LG 27" 4K IPS 144Hz Monitor', specs:'27" UHD • HDMI 2.1 • USB-C 90W • G-Sync', badge:'Deal', badgeType:'badge-deal', rating:4.6, reviews:3287,
+   deals:[{store:'Amazon',price:449.99,best:true},{store:'Best Buy',price:499.99,best:false},{store:'Walmart',price:469.99,best:false},{store:'B&H Photo',price:459.99,best:false}], orig:599.99},
+
+  {id:12, cat:'pc', emoji:'🎧', name:'HyperX Cloud Alpha Wireless', specs:'300hr Battery • 7.1 Surround • 50mm Drivers', badge:null, rating:4.7, reviews:4102,
+   deals:[{store:'Amazon',price:99.99,best:true},{store:'Best Buy',price:109.99,best:false},{store:'Walmart',price:104.99,best:false}], orig:149.99},
+
+  {id:13, cat:'pc', emoji:'🌡️', name:'Intel Core i9-14900K Processor', specs:'24-Core • 6.0GHz Boost • LGA1700 • UHD 770', badge:'Hot', badgeType:'badge-hot', rating:4.7, reviews:1654,
+   deals:[{store:'Newegg',price:429.99,best:false},{store:'Amazon',price:399.99,best:true},{store:'Micro Center',price:389.99,best:false},{store:'Best Buy',price:449.99,best:false}], orig:589.99},
+
+  {id:14, cat:'pc', emoji:'🔵', name:'AMD Radeon RX 7900 XTX 24GB', specs:'Navi 31 • 96 CUs • GDDR6 • 355W TDP', badge:'Sale', badgeType:'badge-sale', rating:4.6, reviews:987,
+   deals:[{store:'Amazon',price:799.99,best:false},{store:'Newegg',price:769.99,best:true},{store:'B&H Photo',price:789.99,best:false},{store:'Best Buy',price:829.99,best:false}], orig:999.99},
+
+  {id:15, cat:'pc', emoji:'📡', name:'Intel Arc A770 16GB Graphics Card', specs:'16GB GDDR6 • XeSS AI Upscaling • DP 2.0', badge:'Deal', badgeType:'badge-deal', rating:4.4, reviews:543,
+   deals:[{store:'Amazon',price:249.99,best:true},{store:'Newegg',price:259.99,best:false},{store:'Best Buy',price:269.99,best:false}], orig:329.99},
+
+  {id:16, cat:'pc', emoji:'🔩', name:'be quiet! Dark Rock Pro 5 Cooler', specs:'250W TDP • Dual-Tower • 2×120mm Silent Wings', badge:null, rating:4.8, reviews:1234,
+   deals:[{store:'Amazon',price:79.99,best:true},{store:'Newegg',price:84.99,best:false},{store:'B&H Photo',price:89.99,best:false}], orig:99.99},
+
+  {id:17, cat:'pc', emoji:'💿', name:'WD Black SN850X 4TB NVMe SSD', specs:'PCIe 4.0 • 7,300 MB/s Read • PS5 Compatible', badge:'New', badgeType:'badge-new', rating:4.7, reviews:2109,
+   deals:[{store:'Amazon',price:279.99,best:true},{store:'Best Buy',price:299.99,best:false},{store:'Walmart',price:284.99,best:false}], orig:349.99},
+
+  {id:18, cat:'pc', emoji:'🌐', name:'ASUS ROG Swift PG32UQX Monitor', specs:'32" 4K Mini-LED • 144Hz • G-Sync Ultimate', badge:'Hot', badgeType:'badge-hot', rating:4.5, reviews:321,
+   deals:[{store:'Amazon',price:1799.99,best:false},{store:'B&H Photo',price:1699.99,best:true},{store:'Best Buy',price:1849.99,best:false}], orig:2499.99},
+
+  // TOOLS
+  {id:19, cat:'tools', emoji:'🔨', name:'DeWalt 20V MAX XR Drill Combo Kit', specs:'2-Speed • 2×5.0Ah Batteries • Carrying Case', badge:'Deal', badgeType:'badge-deal', rating:4.9, reviews:8932,
+   deals:[{store:'Amazon',price:179.99,best:false},{store:'Home Depot',price:199.99,best:false},{store:"Lowe's",price:194.99,best:false},{store:'Walmart',price:189.99,best:false},{store:'Grainger',price:209.99,best:false},{store:'eBay',price:164.99,best:true}], orig:259.99},
+
+  {id:20, cat:'tools', emoji:'🔧', name:'Milwaukee M18 FUEL Circular Saw', specs:'18V • 7-1/4" Blade • Brushless Motor • Anti-Kickback', badge:'Hot', badgeType:'badge-hot', rating:4.8, reviews:3241,
+   deals:[{store:'Home Depot',price:229.99,best:false},{store:'Amazon',price:219.99,best:false},{store:"Lowe's",price:224.99,best:false},{store:'Grainger',price:239.99,best:false},{store:'Zoro',price:209.99,best:true},{store:'Northern Tool',price:219.99,best:false}], orig:299.99},
+
+  {id:21, cat:'tools', emoji:'🔩', name:'Craftsman 450-Piece Tool Set', specs:'Standard & Metric • Chrome Vanadium Steel • Storage Case', badge:'Sale', badgeType:'badge-sale', rating:4.7, reviews:5432,
+   deals:[{store:'Walmart',price:149.99,best:false},{store:'Amazon',price:139.99,best:false},{store:'Home Depot',price:159.99,best:false},{store:"Lowe's",price:154.99,best:false},{store:'Costco',price:129.99,best:true},{store:'Target',price:154.99,best:false}], orig:249.99},
+
+  {id:22, cat:'tools', emoji:'⚡', name:'Ryobi 18V ONE+ Combo Kit (6-Tool)', specs:'Drill, Saw, Reciprocating Saw, Torch & More', badge:'New', badgeType:'badge-new', rating:4.6, reviews:2187,
+   deals:[{store:'Home Depot',price:249.99,best:false},{store:'Amazon',price:239.99,best:false},{store:'Walmart',price:244.99,best:false},{store:'Northern Tool',price:244.99,best:false},{store:'Harbor Freight',price:219.99,best:true}], orig:329.99},
+
+  {id:23, cat:'tools', emoji:'🌬️', name:'Makita 18V LXT Blower + Battery', specs:'1,800 FPM Air Velocity • Turbo Mode • 4.0Ah Battery', badge:null, rating:4.7, reviews:1654,
+   deals:[{store:'Amazon',price:119.99,best:false},{store:'Home Depot',price:129.99,best:false},{store:'Walmart',price:124.99,best:false},{store:'Grainger',price:134.99,best:false},{store:'Zoro',price:114.99,best:true},{store:'Northern Tool',price:119.99,best:false}], orig:169.99},
+
+  {id:24, cat:'tools', emoji:'📐', name:'Bosch 12-Line 360° Laser Level', specs:'±1/8" @30ft • Green Beam • Tripod Included', badge:'Deal', badgeType:'badge-deal', rating:4.8, reviews:1032,
+   deals:[{store:'Amazon',price:99.99,best:false},{store:'Home Depot',price:109.99,best:false},{store:"Lowe's",price:104.99,best:false},{store:'Grainger',price:114.99,best:false},{store:'eBay',price:89.99,best:true}], orig:149.99},
+
+  {id:25, cat:'tools', emoji:'🔦', name:'Streamlight ProTac 2000 Flashlight', specs:'2000 Lumens • 3 Modes • CR123A or 18650', badge:'Hot', badgeType:'badge-hot', rating:4.8, reviews:4310,
+   deals:[{store:'Amazon',price:59.99,best:false},{store:'Grainger',price:64.99,best:false},{store:'MSC Industrial',price:62.99,best:false},{store:'Walmart',price:64.99,best:false},{store:'eBay',price:52.99,best:true}], orig:79.99},
+
+  {id:26, cat:'tools', emoji:'💨', name:'DeWalt 20V Cordless Air Compressor', specs:'1 Gal • 30 PSI Max • Compact & Lightweight', badge:null, rating:4.5, reviews:876,
+   deals:[{store:'Home Depot',price:179.99,best:false},{store:'Amazon',price:169.99,best:false},{store:"Lowe's",price:174.99,best:false},{store:'Walmart',price:174.99,best:false},{store:'Northern Tool',price:164.99,best:true}], orig:219.99},
+
+  {id:27, cat:'tools', emoji:'🔌', name:'Klein Tools 11-in-1 Multi-Bit Screwdriver', specs:'Insulated • Magnetic Tip • SAE & Metric Bits', badge:'Deal', badgeType:'badge-deal', rating:4.9, reviews:6721,
+   deals:[{store:'Amazon',price:19.99,best:false},{store:'Home Depot',price:22.99,best:false},{store:'Grainger',price:23.99,best:false},{store:'Fastenal',price:21.99,best:false},{store:'Walmart',price:21.99,best:false},{store:'eBay',price:17.49,best:true}], orig:32.99},
+
+  {id:28, cat:'tools', emoji:'🧲', name:'RIDGID 18V Gen5X Angle Grinder', specs:'5" Disc • Brushless • Anti-Vibration Side Handle', badge:null, rating:4.6, reviews:743,
+   deals:[{store:'Home Depot',price:119.99,best:false},{store:'Amazon',price:109.99,best:false},{store:'Zoro',price:104.99,best:false},{store:'Northern Tool',price:107.99,best:false},{store:'eBay',price:99.99,best:true}], orig:159.99},
+
+  {id:29, cat:'tools', emoji:'📏', name:'Dewalt Flexvolt 60V Miter Saw', specs:'12" Sliding • Dual-Bevel • FLEXVOLT 6.0Ah Battery', badge:'New', badgeType:'badge-new', rating:4.8, reviews:1432,
+   deals:[{store:'Home Depot',price:549.99,best:false},{store:'Amazon',price:529.99,best:false},{store:"Lowe's",price:539.99,best:false},{store:'Grainger',price:559.99,best:false},{store:'eBay',price:489.99,best:true},{store:'Northern Tool',price:519.99,best:false}], orig:699.99},
+
+  {id:30, cat:'tools', emoji:'🛠️', name:'Wera Kraftform Screwdriver Set (7pc)', specs:'Tri-Component Handle • Chrome Vanadium • Laser Tip', badge:'Deal', badgeType:'badge-deal', rating:4.9, reviews:3892,
+   deals:[{store:'Amazon',price:39.99,best:false},{store:'Grainger',price:44.99,best:false},{store:'Zoro',price:42.99,best:false},{store:'MSC Industrial',price:41.99,best:false},{store:'eBay',price:35.99,best:true}], orig:59.99},
+
+  {id:66, cat:'tools', emoji:'🪚', name:'Harbor Freight Hercules 20V Jigsaw', specs:'20V • 3000 SPM • Orbital Action • Tool-Free Blade', badge:'Deal', badgeType:'badge-deal', rating:4.6, reviews:2341,
+   deals:[{store:'Harbor Freight',price:59.99,best:true},{store:'Amazon',price:74.99,best:false},{store:'Home Depot',price:79.99,best:false},{store:'eBay',price:64.99,best:false}], orig:89.99},
+
+  {id:67, cat:'tools', emoji:'🔨', name:'Estwing 22oz Milled Face Framing Hammer', specs:'Forged Steel • Shock Reduction Grip • 16" Handle', badge:null, rating:4.9, reviews:8765,
+   deals:[{store:'Amazon',price:39.99,best:false},{store:'Home Depot',price:42.99,best:false},{store:"Lowe's",price:41.99,best:false},{store:'Grainger',price:44.99,best:false},{store:'Zoro',price:37.99,best:true},{store:'Northern Tool',price:39.99,best:false}], orig:59.99},
+
+  // ELECTRONICS
+  {id:31, cat:'electronics', emoji:'📱', name:'Samsung 65" QLED 4K Smart TV', specs:'Neo QLED • Quantum HDR • 120Hz • Alexa Built-in', badge:'Hot', badgeType:'badge-hot', rating:4.7, reviews:4302,
+   deals:[{store:'Amazon',price:899.99,best:false},{store:'Best Buy',price:849.99,best:true},{store:'Walmart',price:879.99,best:false},{store:'Target',price:899.99,best:false}], orig:1299.99},
+
+  {id:32, cat:'electronics', emoji:'🎵', name:'Sony WH-1000XM5 Headphones', specs:'ANC • 30hr Battery • LDAC Hi-Res Audio', badge:'Deal', badgeType:'badge-deal', rating:4.8, reviews:12034,
+   deals:[{store:'Amazon',price:279.99,best:true},{store:'Best Buy',price:299.99,best:false},{store:'Walmart',price:289.99,best:false},{store:'Target',price:299.99,best:false}], orig:399.99},
+
+  {id:33, cat:'electronics', emoji:'🔌', name:'Anker 737 Power Bank 24000mAh', specs:'140W Fast Charge • Smart Display • 3 Ports', badge:'New', badgeType:'badge-new', rating:4.7, reviews:3412,
+   deals:[{store:'Amazon',price:99.99,best:true},{store:'Best Buy',price:109.99,best:false},{store:'Walmart',price:104.99,best:false}], orig:149.99},
+
+  {id:34, cat:'electronics', emoji:'📷', name:'Sony A7 IV Mirrorless Camera', specs:'33MP BSI CMOS • 4K 60fps • 5-Axis IBIS • WiFi', badge:'Sale', badgeType:'badge-sale', rating:4.9, reviews:2187,
+   deals:[{store:'Amazon',price:2399.99,best:false},{store:'B&H Photo',price:2299.99,best:true},{store:'Best Buy',price:2499.99,best:false}], orig:2799.99},
+
+  {id:35, cat:'electronics', emoji:'📡', name:'Google Nest WiFi Pro 6E Router', specs:'Tri-Band • AXE5400 • Matter Support • 3-Pack', badge:null, rating:4.5, reviews:1876,
+   deals:[{store:'Amazon',price:299.99,best:true},{store:'Best Buy',price:329.99,best:false},{store:'Walmart',price:309.99,best:false}], orig:399.99},
+
+  {id:36, cat:'electronics', emoji:'💡', name:'Govee Neon Rope Lights 16ft Kit', specs:'RGBIC • Music Sync • App Control • Matter', badge:'Deal', badgeType:'badge-deal', rating:4.6, reviews:5321,
+   deals:[{store:'Amazon',price:39.99,best:true},{store:'Walmart',price:44.99,best:false},{store:'Target',price:44.99,best:false}], orig:59.99},
+
+  {id:37, cat:'electronics', emoji:'🔋', name:'Jackery Explorer 2000 Pro Generator', specs:'2160Wh • 2200W AC • Solar Ready • LFP', badge:'Hot', badgeType:'badge-hot', rating:4.7, reviews:2109,
+   deals:[{store:'Amazon',price:1399.99,best:true},{store:'Best Buy',price:1499.99,best:false},{store:'Walmart',price:1449.99,best:false}], orig:1999.99},
+
+  {id:38, cat:'electronics', emoji:'⌚', name:'Apple Watch Ultra 2 49mm', specs:'Titanium Case • Always-On Altimeter • Dual Frequency GPS', badge:'New', badgeType:'badge-new', rating:4.8, reviews:3421,
+   deals:[{store:'Amazon',price:769.99,best:false},{store:'Best Buy',price:749.99,best:true},{store:'Walmart',price:779.99,best:false},{store:'Target',price:799.99,best:false}], orig:899.99},
+
+  {id:39, cat:'electronics', emoji:'🎮', name:'PlayStation 5 Slim Disc Edition', specs:'1TB SSD • 4K 120fps • Ray Tracing • DualSense', badge:'Hot', badgeType:'badge-hot', rating:4.9, reviews:15432,
+   deals:[{store:'Walmart',price:449.99,best:false},{store:'Best Buy',price:449.99,best:false},{store:'Target',price:449.99,best:false},{store:'Amazon',price:449.99,best:true}], orig:499.99},
+
+  {id:40, cat:'electronics', emoji:'🖨️', name:'Bambu Lab X1-Carbon 3D Printer', specs:'Multi-Color • AMS • 256×256×256mm • AI Inspection', badge:'New', badgeType:'badge-new', rating:4.8, reviews:1876,
+   deals:[{store:'Amazon',price:1099.99,best:false},{store:'B&H Photo',price:999.99,best:true},{store:'eBay',price:1049.99,best:false}], orig:1299.99},
+
+  // AUTO PARTS
+  {id:41, cat:'auto', emoji:'🔋', name:'Optima RedTop 35 Car Battery', specs:'720 CCA • 12V AGM • Vibration Resistant', badge:'Deal', badgeType:'badge-deal', rating:4.8, reviews:4321,
+   deals:[{store:'Amazon',price:189.99,best:true},{store:'AutoZone',price:199.99,best:false},{store:'Walmart',price:194.99,best:false},{store:'eBay',price:184.99,best:false}], orig:249.99},
+
+  {id:42, cat:'auto', emoji:'🛞', name:'Michelin Defender2 All-Season Tire 225/65R17', specs:'75K Mile Warranty • EverGrip Technology • 4-Pack', badge:'Hot', badgeType:'badge-hot', rating:4.9, reviews:8765,
+   deals:[{store:'Amazon',price:599.99,best:false},{store:'Walmart',price:579.99,best:true},{store:'eBay',price:589.99,best:false}], orig:799.99},
+
+  {id:43, cat:'auto', emoji:'🔦', name:'Autel MaxiSys Ultra OBD2 Scanner', specs:'Full System Diagnosis • ECU Coding • ADAS Calibration', badge:'New', badgeType:'badge-new', rating:4.7, reviews:1234,
+   deals:[{store:'Amazon',price:1699.99,best:false},{store:'eBay',price:1599.99,best:true},{store:'AutoZone',price:1799.99,best:false}], orig:2199.99},
+
+  {id:44, cat:'auto', emoji:'💧', name:'Mobil 1 Advanced Full Synthetic 5W-30 5qt', specs:'Full Synthetic • 20K Mile Protection • API SP', badge:'Deal', badgeType:'badge-deal', rating:4.8, reviews:23456,
+   deals:[{store:'Walmart',price:29.97,best:true},{store:'Amazon',price:32.99,best:false},{store:'AutoZone',price:34.99,best:false},{store:'Target',price:33.99,best:false}], orig:44.99},
+
+  {id:45, cat:'auto', emoji:'🛠️', name:'Snap-On 3/8" Drive Socket Set (38pc)', specs:'Chrome Vanadium • 6-Point • SAE & Metric', badge:'Sale', badgeType:'badge-sale', rating:4.9, reviews:3210,
+   deals:[{store:'Amazon',price:179.99,best:false},{store:'eBay',price:159.99,best:true},{store:'AutoZone',price:189.99,best:false}], orig:279.99},
+
+  {id:46, cat:'auto', emoji:'🔧', name:'Moog Front Lower Control Arm Pair', specs:'Fits Most 2019-2024 Toyota RAV4 • OEM Replacement', badge:null, rating:4.7, reviews:654,
+   deals:[{store:'Amazon',price:149.99,best:true},{store:'AutoZone',price:164.99,best:false},{store:'eBay',price:154.99,best:false}], orig:199.99},
+
+  {id:47, cat:'auto', emoji:'🌡️', name:'GOOLOO SuperSafe 4000A Jump Starter', specs:'20000mAh • Air Compressor • USB-C PD 65W', badge:'Hot', badgeType:'badge-hot', rating:4.7, reviews:5432,
+   deals:[{store:'Amazon',price:79.99,best:true},{store:'Walmart',price:84.99,best:false},{store:'Target',price:89.99,best:false}], orig:129.99},
+
+  {id:48, cat:'auto', emoji:'🚘', name:'Thinkware U1000 Dash Cam 4K', specs:'4K UHD • 2-Channel • ADAS • WiFi & GPS', badge:'New', badgeType:'badge-new', rating:4.6, reviews:876,
+   deals:[{store:'Amazon',price:279.99,best:true},{store:'B&H Photo',price:299.99,best:false},{store:'eBay',price:264.99,best:false}], orig:379.99},
+
+  // AUTO PARTS — extended with new stores
+  {id:49, cat:'auto', emoji:'🛢️', name:'ACDelco Professional Brake Pads (Front)', specs:'Ceramic • Semi-Metallic Option • OEM Fit • 4pc', badge:'Deal', badgeType:'badge-deal', rating:4.8, reviews:6543,
+   deals:[{store:'Amazon',price:34.99,best:false},{store:"O'Reilly Auto",price:29.99,best:true},{store:'NAPA Auto',price:32.99,best:false},{store:'AutoZone',price:33.99,best:false},{store:'RockAuto',price:27.50,best:false}], orig:54.99},
+
+  {id:50, cat:'auto', emoji:'🔄', name:'Gates Timing Belt Kit w/ Water Pump', specs:'OE-Quality • Includes Tensioner & Idler Pulleys', badge:null, rating:4.7, reviews:2314,
+   deals:[{store:'Amazon',price:89.99,best:false},{store:'RockAuto',price:64.99,best:true},{store:'NAPA Auto',price:79.99,best:false},{store:"O'Reilly Auto",price:74.99,best:false}], orig:129.99},
+
+  {id:51, cat:'auto', emoji:'🌡️', name:'Bosch Iridium Spark Plugs (Set of 4)', specs:'0.6mm Fine Wire Iridium • OE Fit & Performance', badge:'Hot', badgeType:'badge-hot', rating:4.9, reviews:9123,
+   deals:[{store:'Amazon',price:24.99,best:false},{store:'AutoZone',price:27.99,best:false},{store:"O'Reilly Auto",price:26.99,best:false},{store:'RockAuto',price:19.99,best:true},{store:'NAPA Auto',price:25.99,best:false}], orig:39.99},
+
+  // INDUSTRIAL & MRO — Grainger, Zoro, MSC, McMaster-Carr, Fastenal
+  {id:52, cat:'industrial', emoji:'🔩', name:'McMaster-Carr Hex Bolt Assortment Kit', specs:'Grade 8 • Zinc-Plated • 304-Piece • SAE & Metric', badge:'Deal', badgeType:'badge-deal', rating:4.9, reviews:3421,
+   deals:[{store:'McMaster-Carr',price:38.99,best:true},{store:'Grainger',price:44.99,best:false},{store:'Zoro',price:41.99,best:false},{store:'Fastenal',price:42.99,best:false},{store:'Amazon',price:43.99,best:false}], orig:59.99},
+
+  {id:53, cat:'industrial', emoji:'🏭', name:'Milwaukee M18 Cordless Band Saw', specs:'18V • 3-5/8" Cut Capacity • Brushless • Tool Only', badge:'Hot', badgeType:'badge-hot', rating:4.8, reviews:1876,
+   deals:[{store:'Grainger',price:319.99,best:false},{store:'Zoro',price:299.99,best:false},{store:'Amazon',price:289.99,best:true},{store:'Northern Tool',price:309.99,best:false},{store:'Home Depot',price:319.99,best:false}], orig:399.99},
+
+  {id:54, cat:'industrial', emoji:'💡', name:'Lithonia Lighting LED Shop Light 4ft', specs:'5000K • 4400 Lumens • Linkable • Vapor Tight', badge:'Deal', badgeType:'badge-deal', rating:4.7, reviews:5432,
+   deals:[{store:'Grainger',price:49.99,best:false},{store:'Zoro',price:44.99,best:false},{store:'Amazon',price:39.99,best:true},{store:'Home Depot',price:42.99,best:false},{store:"Lowe's",price:43.99,best:false}], orig:69.99},
+
+  {id:55, cat:'industrial', emoji:'⚙️', name:'SKF Deep Groove Ball Bearing 6205-2RS', specs:'25×52×15mm • Rubber Sealed • Heavy Load Rated', badge:null, rating:4.8, reviews:2109,
+   deals:[{store:'MSC Industrial',price:12.49,best:false},{store:'McMaster-Carr',price:11.99,best:true},{store:'Grainger',price:13.99,best:false},{store:'Fastenal',price:12.99,best:false},{store:'Amazon',price:14.99,best:false}], orig:24.99},
+
+  {id:56, cat:'industrial', emoji:'🌡️', name:'Fluke 87V Industrial Multimeter', specs:'True-RMS • 1000V CAT III • Temperature • 20kHz', badge:'New', badgeType:'badge-new', rating:4.9, reviews:4231,
+   deals:[{store:'Grainger',price:369.99,best:false},{store:'Zoro',price:349.99,best:false},{store:'Amazon',price:329.99,best:true},{store:'MSC Industrial',price:354.99,best:false},{store:'B&H Photo',price:339.99,best:false}], orig:449.99},
+
+  {id:57, cat:'industrial', emoji:'🧰', name:'Stanley FATMAX Pro Mobile Work Center', specs:'62-Drawer • Ball Bearing Slides • 300lb Capacity', badge:'Sale', badgeType:'badge-sale', rating:4.7, reviews:987,
+   deals:[{store:'Grainger',price:899.99,best:false},{store:'Zoro',price:849.99,best:false},{store:'Amazon',price:799.99,best:true},{store:'Northern Tool',price:829.99,best:false},{store:'Home Depot',price:849.99,best:false}], orig:1199.99},
+
+  {id:58, cat:'industrial', emoji:'🔌', name:'Hubbell 30A 125/250V Twist-Lock Outlet', specs:'NEMA L14-30R • Grounding • Weather Resistant', badge:null, rating:4.8, reviews:1654,
+   deals:[{store:'Grainger',price:29.99,best:false},{store:'Fastenal',price:27.99,best:false},{store:'McMaster-Carr',price:24.99,best:true},{store:'Amazon',price:26.99,best:false},{store:'Home Depot',price:28.99,best:false}], orig:44.99},
+
+  {id:59, cat:'industrial', emoji:'⚡', name:'Ingersoll Rand 1/2" Air Impact Wrench', specs:'1300 ft-lbs Torque • Quiet 86dB • 4-Mode Power', badge:'Hot', badgeType:'badge-hot', rating:4.9, reviews:3210,
+   deals:[{store:'Grainger',price:299.99,best:false},{store:'Zoro',price:279.99,best:false},{store:'MSC Industrial',price:284.99,best:false},{store:'Amazon',price:259.99,best:true},{store:'Northern Tool',price:269.99,best:false}], orig:399.99},
+
+  {id:60, cat:'industrial', emoji:'🪜', name:'Werner 6ft Type IA Fiberglass Step Ladder', specs:'300lb Capacity • Slip-Resistant Feet • ANSI Certified', badge:'Deal', badgeType:'badge-deal', rating:4.8, reviews:7654,
+   deals:[{store:'Home Depot',price:89.99,best:false},{store:"Lowe's",price:84.99,best:false},{store:'Amazon',price:79.99,best:false},{store:'Grainger',price:94.99,best:false},{store:'Zoro',price:74.99,best:true}], orig:119.99},
+
+  {id:61, cat:'industrial', emoji:'🔐', name:'Master Lock 3-Pack Commercial Padlocks', specs:'ANSI Grade 1 • Keyed Alike • Hardened Steel Shackle', badge:null, rating:4.7, reviews:4321,
+   deals:[{store:'Grainger',price:34.99,best:false},{store:'Fastenal',price:32.99,best:false},{store:'Amazon',price:28.99,best:true},{store:'Home Depot',price:31.99,best:false},{store:'Zoro',price:30.99,best:false}], orig:54.99},
+
+  {id:62, cat:'industrial', emoji:'🌬️', name:'Speedaire 80-Gallon 2-Stage Air Compressor', specs:'7.5HP • 175 PSI • Cast Iron Pump • 3-Phase', badge:'New', badgeType:'badge-new', rating:4.7, reviews:432,
+   deals:[{store:'Grainger',price:1899.99,best:false},{store:'Zoro',price:1749.99,best:false},{store:'Northern Tool',price:1799.99,best:false},{store:'Amazon',price:1699.99,best:true}], orig:2399.99},
+
+  {id:63, cat:'industrial', emoji:'📦', name:'Uline 18" x 18" x 12" Corrugated Boxes (25pk)', specs:'200lb Test • RSC Style • White Kraft', badge:'Deal', badgeType:'badge-deal', rating:4.8, reviews:2109,
+   deals:[{store:'Zoro',price:44.99,best:false},{store:'Grainger',price:49.99,best:false},{store:'Amazon',price:39.99,best:true},{store:'Fastenal',price:47.99,best:false}], orig:64.99},
+
+  {id:64, cat:'industrial', emoji:'🦺', name:'Ergodyne ProFlex 7500 Back Support Belt', specs:'L/XL • Removable Suspenders • High-Vis Option', badge:null, rating:4.7, reviews:1876,
+   deals:[{store:'Grainger',price:39.99,best:false},{store:'Zoro',price:34.99,best:false},{store:'MSC Industrial',price:36.99,best:false},{store:'Amazon',price:31.99,best:true},{store:'Fastenal',price:35.99,best:false}], orig:54.99},
+
+  {id:65, cat:'industrial', emoji:'🔦', name:'Ridgid SeeSnake Micro Drain Camera', specs:'1.5" Camera Head • 3ft Cable • LCD Screen Included', badge:'Sale', badgeType:'badge-sale', rating:4.6, reviews:654,
+   deals:[{store:'Grainger',price:349.99,best:false},{store:'Zoro',price:319.99,best:false},{store:'Amazon',price:299.99,best:true},{store:'Home Depot',price:329.99,best:false}], orig:449.99},
+];
+
+// ══════════════════════════════════════════════════
+//  STATE
+// ══════════════════════════════════════════════════
+let currentCat = 'all';
+let currentSort = 'best';
+let currentSearch = '';
+let compareSet = new Set();
+
+// ══════════════════════════════════════════════════
+//  HELPERS
+// ══════════════════════════════════════════════════
+function getBestPrice(product) {
+  return Math.min(...product.deals.map(d => d.price));
+}
+
+function getSavings(product) {
+  return product.orig - getBestPrice(product);
+}
+
+function getSavingsPct(product) {
+  return Math.round((getSavings(product) / product.orig) * 100);
+}
+
+function getSearchUrl(store, query) {
+  const base = STORE_URLS[store] || `https://www.google.com/search?q=${encodeURIComponent(store)}+`;
+  return base + encodeURIComponent(query);
+}
+
+// ══════════════════════════════════════════════════
+//  RENDER
+// ══════════════════════════════════════════════════
+function renderProducts() {
+  let list = [...products];
+
+  // filter by category
+  if (currentCat !== 'all') list = list.filter(p => p.cat === currentCat);
+
+  // filter by search
+  if (currentSearch) {
+    const q = currentSearch.toLowerCase();
+    list = list.filter(p =>
+      p.name.toLowerCase().includes(q) ||
+      p.specs.toLowerCase().includes(q) ||
+      p.cat.toLowerCase().includes(q) ||
+      p.deals.some(d => d.store.toLowerCase().includes(q))
+    );
+  }
+
+  // sort
+  if (currentSort === 'price-asc')   list.sort((a,b) => getBestPrice(a) - getBestPrice(b));
+  if (currentSort === 'price-desc')  list.sort((a,b) => getBestPrice(b) - getBestPrice(a));
+  if (currentSort === 'rating')      list.sort((a,b) => b.rating - a.rating);
+  if (currentSort === 'savings')     list.sort((a,b) => getSavingsPct(b) - getSavingsPct(a));
+
+  const grid = document.getElementById('productGrid');
+  const countEl = document.getElementById('resultCount');
+
+  countEl.innerHTML = `<strong>${list.length}</strong> product${list.length !== 1 ? 's' : ''} found`;
+
+  if (list.length === 0) {
+    grid.innerHTML = `<div class="no-results"><div class="icon">🔍</div><h3>No products found</h3><p>Try a different search or category</p></div>`;
+    return;
+  }
+
+  grid.innerHTML = list.map(p => {
+    const best = getBestPrice(p);
+    const savePct = getSavingsPct(p);
+
+    const dealsHtml = p.deals.map(d => {
+      const color = STORE_COLORS[d.store] || '#64748b';
+      const isB = d.best || d.price === best;
+      const url = getSearchUrl(d.store, p.name);
+      return `
+        <a href="${url}" target="_blank" class="deal-row ${isB ? 'best-deal' : ''}">
+          <div class="deal-store">
+            <span class="store-dot" style="background:${color}"></span>
+            <span class="store-name">${d.store}</span>
+            ${isB ? '<span class="best-tag">✓ Best</span>' : ''}
+          </div>
+          <span class="deal-price">$${d.price.toFixed(2)}</span>
+        </a>`;
+    }).join('');
+
+    const badgeHtml = p.badge
+      ? `<span class="badge ${p.badgeType}">${p.badge}</span>`
+      : '';
+
+    const inCompare = compareSet.has(p.id);
+
+    return `
+      <div class="card" id="card-${p.id}">
+        <div class="card-img-wrap">
+          ${badgeHtml}
+          <div class="card-emoji">${p.emoji}</div>
+          <span class="save-chip">Save ${savePct}%</span>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">${catLabel(p.cat)}</div>
+          <div class="card-name">${p.name}</div>
+          <div class="card-specs">${p.specs}</div>
+          <div class="rating-row">
+            <span class="stars">${'★'.repeat(Math.floor(p.rating))}${ p.rating % 1 >= .5 ? '½' : ''}${'☆'.repeat(5 - Math.ceil(p.rating))}</span>
+            <span class="rating-num">${p.rating} (${p.reviews.toLocaleString()})</span>
+          </div>
+          <div class="price-section">
+            <span class="price-best">$${best.toFixed(2)}</span>
+            <span class="price-orig">$${p.orig.toFixed(2)}</span>
+          </div>
+          <div class="store-deals">
+            <div class="store-deals-title">💰 Compare Prices</div>
+            <div class="deal-list">${dealsHtml}</div>
+          </div>
+        </div>
+        <div class="card-actions">
+          <button class="btn-primary" onclick="buyBest(${p.id})">🛒 Best Deal →</button>
+          <button class="btn-outline ${inCompare ? 'compared' : ''}" onclick="toggleCompare(${p.id})" title="Compare" id="cmp-${p.id}">${inCompare ? '✓' : '⊕'}</button>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function catLabel(cat) {
+  return {pc:'PC Parts', tools:'Tools', electronics:'Electronics', auto:'Auto Parts', industrial:'Industrial & MRO'}[cat] || cat;
+}
+
+// ══════════════════════════════════════════════════
+//  ACTIONS
+// ══════════════════════════════════════════════════
+function filterCat(cat, btn) {
+  currentCat = cat;
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderProducts();
+}
+
+function sortProducts() {
+  currentSort = document.getElementById('sortSelect').value;
+  renderProducts();
+}
+
+function doSearch() {
+  currentSearch = document.getElementById('searchInput').value.trim();
+  renderProducts();
+}
+
+document.getElementById('searchInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') doSearch();
+});
+
+function buyBest(id) {
+  const p = products.find(x => x.id === id);
+  const bestDeal = p.deals.reduce((a, b) => a.price <= b.price ? a : b);
+  window.open(getSearchUrl(bestDeal.store, p.name), '_blank');
+}
+
+function toggleCompare(id) {
+  if (compareSet.has(id)) {
+    compareSet.delete(id);
+  } else {
+    if (compareSet.size >= 4) {
+      alert('You can compare up to 4 products at a time.');
+      return;
+    }
+    compareSet.add(id);
+  }
+  const bar = document.getElementById('compareBar');
+  const btn = document.getElementById(`cmp-${id}`);
+  if (btn) btn.textContent = compareSet.has(id) ? '✓' : '⊕';
+  document.getElementById('compareCount').textContent = compareSet.size;
+  bar.classList.toggle('visible', compareSet.size > 0);
+}
+
+function clearCompare() {
+  compareSet.clear();
+  document.getElementById('compareBar').classList.remove('visible');
+  renderProducts();
+}
+
+function compareItems() {
+  const items = [...compareSet].map(id => products.find(p => p.id === id));
+  const lines = items.map(p =>
+    `${p.name}\nBest Price: $${getBestPrice(p).toFixed(2)} (Save ${getSavingsPct(p)}%)\nRating: ${p.rating}/5 (${p.reviews.toLocaleString()} reviews)`
+  ).join('\n\n──────────────\n\n');
+  alert('📊 Price Comparison\n\n' + lines);
+}
+
+// Update count chips
+function updateCounts() {
+  const cats = ['all', 'pc', 'tools', 'electronics', 'auto', 'industrial'];
+  cats.forEach(c => {
+    const count = c === 'all' ? products.length : products.filter(p => p.cat === c).length;
+    const el = document.getElementById(`count-${c}`);
+    if (el) el.textContent = count;
+  });
+}
+
+// ══════════════════════════════════════════════════
+//  INIT
+// ══════════════════════════════════════════════════
+updateCounts();
+renderProducts();
+
+// ══════════════════════════════════════════════════
+//  PWA — Install Prompt (Chrome, Edge, Samsung Browser)
+// ══════════════════════════════════════════════════
+let deferredPrompt = null;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  document.getElementById('installBar').classList.remove('hidden');
+});
+
+document.getElementById('installBtn').addEventListener('click', async () => {
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  const { outcome } = await deferredPrompt.userChoice;
+  deferredPrompt = null;
+  document.getElementById('installBar').classList.add('hidden');
+});
+
+window.addEventListener('appinstalled', () => {
+  document.getElementById('installBar').classList.add('hidden');
+  deferredPrompt = null;
+});
+
+// ══════════════════════════════════════════════════
+//  PWA — Service Worker (offline cache)
+// ══════════════════════════════════════════════════
+if ('serviceWorker' in navigator) {
+  const swCode = `
+    const CACHE = 'ztools-v1';
+    self.addEventListener('install', e => {
+      e.waitUntil(caches.open(CACHE).then(c => c.addAll(['./', './index.html'])));
+      self.skipWaiting();
+    });
+    self.addEventListener('activate', e => {
+      e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))));
+      self.clients.claim();
+    });
+    self.addEventListener('fetch', e => {
+      e.respondWith(caches.match(e.request).then(r => r || fetch(e.request).catch(() => caches.match('./'))));
+    });
+  `;
+  const blob = new Blob([swCode], { type: 'application/javascript' });
+  const swUrl = URL.createObjectURL(blob);
+  navigator.serviceWorker.register(swUrl).catch(() => {});
+}
+
+// ══════════════════════════════════════════════════
+//  CROSS-BROWSER — Touch & Keyboard
+// ══════════════════════════════════════════════════
+// Safari: fix 300ms tap delay
+document.addEventListener('touchstart', () => {}, { passive: true });
+
+// All browsers: swipe-to-scroll category tabs
+const catInner = document.querySelector('.cat-inner');
+if (catInner) {
+  let isDown = false, startX, scrollLeft;
+  catInner.addEventListener('mousedown', e => { isDown = true; startX = e.pageX - catInner.offsetLeft; scrollLeft = catInner.scrollLeft; });
+  catInner.addEventListener('mouseleave', () => { isDown = false; });
+  catInner.addEventListener('mouseup', () => { isDown = false; });
+  catInner.addEventListener('mousemove', e => { if (!isDown) return; e.preventDefault(); catInner.scrollLeft = scrollLeft - (e.pageX - catInner.offsetLeft - startX); });
+}
+</script>
+</body>
+</html>
